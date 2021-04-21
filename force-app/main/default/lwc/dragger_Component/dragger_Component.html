@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Drag and Drop">   
+        <div class="wrap">
+            <div class="left">
+                <template for:each={accounts.data} for:item="account" if:true={accounts.data}> 
+                    <div key={account.id} > 
+                        <div class="card" key={account.id} >
+                            <div class="Test" draggable="true" data-item={account.Id} ondragstart={handleDragStart}>
+                                <lightning-tile label={account.Name} type="media" class="bolder_style"> 
+                                    <lightning-icon slot="media" icon-name="standard:account"></lightning-icon>
+                                    <p title="7 Members">Type:{account.Type}</p>           
+                                </lightning-tile>
+                            </div> 
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+
+            <div class="right" ondragover={allowDrop} ondrop={drop} draggable="true" ondragstart={handleDragStart}>
+
+            </div>
+        </div>
+    </lightning-card>
+</template>
